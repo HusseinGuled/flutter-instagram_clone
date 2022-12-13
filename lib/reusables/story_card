@@ -1,0 +1,35 @@
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+class Reusable_Story extends StatelessWidget {
+  Reusable_Story({Key? key, required this.username, required this.userProfImg})
+      : super(key: key);
+  String username;
+  String userProfImg;
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Container(
+          margin: EdgeInsets.only(left: 10),
+          padding: EdgeInsets.all(1.7),
+          height: 50,
+          width: 50,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            border: Border.all(width: 1.2, color: Colors.red),
+          ),
+          child: ClipOval(
+            child: Image.asset(userProfImg,
+                height: 40, width: 40, fit: BoxFit.cover),
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.only(left: 10, top: 50),
+          child: Text(username,
+              style: GoogleFonts.zenKakuGothicAntique(fontSize: 11)),
+        )
+      ],
+    );
+  }
+}
